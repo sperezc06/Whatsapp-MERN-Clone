@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Whatsapp-MERN-clone/static/css/main.c554b770.chunk.css",
+    "main.js": "/Whatsapp-MERN-clone/static/js/main.f90514d5.chunk.js",
+    "main.js.map": "/Whatsapp-MERN-clone/static/js/main.f90514d5.chunk.js.map",
+    "runtime-main.js": "/Whatsapp-MERN-clone/static/js/runtime-main.0a4b1435.js",
+    "runtime-main.js.map": "/Whatsapp-MERN-clone/static/js/runtime-main.0a4b1435.js.map",
+    "static/js/2.a4755eea.chunk.js": "/Whatsapp-MERN-clone/static/js/2.a4755eea.chunk.js",
+    "static/js/2.a4755eea.chunk.js.map": "/Whatsapp-MERN-clone/static/js/2.a4755eea.chunk.js.map",
+    "static/js/3.3e2e0670.chunk.js": "/Whatsapp-MERN-clone/static/js/3.3e2e0670.chunk.js",
+    "static/js/3.3e2e0670.chunk.js.map": "/Whatsapp-MERN-clone/static/js/3.3e2e0670.chunk.js.map",
+    "index.html": "/Whatsapp-MERN-clone/index.html",
+    "static/css/main.c554b770.chunk.css.map": "/Whatsapp-MERN-clone/static/css/main.c554b770.chunk.css.map",
+    "static/js/2.a4755eea.chunk.js.LICENSE.txt": "/Whatsapp-MERN-clone/static/js/2.a4755eea.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0a4b1435.js",
+    "static/js/2.a4755eea.chunk.js",
+    "static/css/main.c554b770.chunk.css",
+    "static/js/main.f90514d5.chunk.js"
+  ]
+}
