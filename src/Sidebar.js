@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
 import DonutlargeIcon from "@material-ui/icons/DonutLarge";
 import { Avatar, IconButton } from "@material-ui/core";
@@ -6,12 +6,34 @@ import ChatIcon from "@material-ui/icons/Chat";
 import MorevertIcon from "@material-ui/icons/MoreVert";
 import SearchOutlined from "@material-ui/icons/SearchOutlined";
 import SidebarChat from "./SidebarChat";
+import db from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
+  const [rooms, setRooms] = useState([]);
+  const [{ user }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
+      setRooms(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  // run this once the sidebar component load and once only the empty brackets[]
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar src="https://scontent.feoh8-1.fna.fbcdn.net/v/t1.6435-9/30742955_2002444146639728_438486328078761984_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=9azC617BEXoAX9VRsE7&_nc_ht=scontent.feoh8-1.fna&oh=74d2c020fa7ab9352a4b4668de40b4de&oe=609C8636" />
+        <Avatar src={user?.photoURl} />
         <div className="sidebar__headerRight">
           <IconButton>
             <DonutlargeIcon />
@@ -31,9 +53,10 @@ function Sidebar() {
         </div>
       </div>
       <div className="sidebar__chats">
-        <SidebarChat />
-        <SidebarChat />
-        <SidebarChat />
+        <SidebarChat addNewChat />
+        {rooms.map((room) => (
+          <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+        ))}
       </div>
     </div>
   );
